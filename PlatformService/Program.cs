@@ -28,6 +28,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+PrepDb.PrepPopulation(app);
+
 app.MapGet("api/v1/hello", () =>
 {
 
