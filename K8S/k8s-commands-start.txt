@@ -1,0 +1,9 @@
+in K8S directory from the .yaml file level:
+
+	kubectl apply -f .\platforms-depl.yaml
+		to initialize pod(s)
+
+	kubectl get deployments
+
+	kubectl get pods
+
