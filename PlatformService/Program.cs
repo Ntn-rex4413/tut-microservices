@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
+using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
+builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,6 +32,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+Console.WriteLine($"--> Command Service endpoint: {app.Configuration["CommandService"]}");
 
 PrepDb.PrepPopulation(app);
 
