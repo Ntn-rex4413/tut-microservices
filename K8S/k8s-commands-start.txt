@@ -7,3 +7,10 @@ in K8S directory from the .yaml file level:
 
 	kubectl get pods
 
+	kubectl apply -f .\platforms-np-srv.yaml
+
+	kubectl get services
+		e.g. to check if NodePort service has been created
+		to access the app use the latter port listed for NodePort service
+		NodePort service is only used in development, not in production
+
