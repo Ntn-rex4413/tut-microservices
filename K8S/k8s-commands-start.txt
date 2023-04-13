@@ -14,3 +14,6 @@ in K8S directory from the .yaml file level:
 		to access the app use the latter port listed for NodePort service
 		NodePort service is only used in development, not in production
 
+	kubectl rollout restart deployment platforms-depl
+		to pull refreshed images after publishing with changes
+
