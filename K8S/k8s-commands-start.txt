@@ -23,3 +23,6 @@ in K8S directory from the .yaml file level:
 		get pods from ingress-nginx namespace after using installing it using command above,
 		// same for get services, etc.
 
+	kubectl get pvc
+		meaning get persistent volume claims, like the one applied with local-pvc.yaml in this commit
+
