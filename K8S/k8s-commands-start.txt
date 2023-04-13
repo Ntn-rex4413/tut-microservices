@@ -16,4 +16,10 @@ in K8S directory from the .yaml file level:
 
 	kubectl rollout restart deployment platforms-depl
 		to pull refreshed images after publishing with changes
+	
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.7.0/deploy/static/provider/cloud/deploy.yaml
+
+	kubectl get pods --namespace=ingress-nginx
+		get pods from ingress-nginx namespace after using installing it using command above,
+		// same for get services, etc.
 
