@@ -26,3 +26,7 @@ in K8S directory from the .yaml file level:
 	kubectl get pvc
 		meaning get persistent volume claims, like the one applied with local-pvc.yaml in this commit
 
+	kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+		mssql here is the name, then key-value pair
+
+
