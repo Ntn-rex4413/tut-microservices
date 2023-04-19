@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PlatformService.AsyncDataServices;
 using PlatformService.Data;
+using PlatformService.SyncDataServices.Grpc;
 using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -48,9 +49,16 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGrpcService<GrpcPlatformService>();
+
 Console.WriteLine($"--> Command Service endpoint: {app.Configuration["CommandService"]}");
 
 PrepDb.PrepPopulation(app, app.Environment.IsProduction());
+
+app.MapGet("/protos/platforms.proto", async context =>
+{
+    await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+});
 
 app.MapGet("api/v1/hello", () =>
 {
