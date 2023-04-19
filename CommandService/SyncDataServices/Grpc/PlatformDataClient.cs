@@ -30,7 +30,7 @@ namespace CommandService.SyncDataServices.Grpc
             {
                 var reply = client.GetAllPlatforms(request);
 
-                return _mapper.Map<IEnumerable<Platform>>(reply);
+                return _mapper.Map<IEnumerable<Platform>>(reply.Platform);
             }
             catch (Exception ex)
             {
